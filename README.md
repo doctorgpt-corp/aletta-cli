@@ -1,7 +1,12 @@
 # The Ask Aletta CLI
 
-`aletta` drives the Ask Aletta sandbox from a terminal: conversations, tasks, patient
-contexts and every scripted scenario, with a sandbox key from the Platform.
+`aletta` is the command line for the Ask Aletta Platform. It manages your organization's
+setup (sandboxes, API keys and management tokens) and calls the Ask Aletta API
+(conversations, tasks, patient contexts and every scripted scenario), from a terminal or
+in CI.
+
+This release covers the sandbox. The test and live environments, and the rest of the
+Platform's controls, come to the same CLI in later releases.
 
 ## Install
 
