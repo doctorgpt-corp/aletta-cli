@@ -16,7 +16,17 @@ curl -fsSL https://platform.askaletta.com/cli | sh
 
 The script installs `aletta` to `~/.local/bin` (or `ALETTA_INSTALL_DIR`) without `sudo`,
 and `ALETTA_VERSION=<version>` pins a release. Builds exist for macOS (Apple silicon and
-Intel) and Linux (x86_64 and arm64, static). On Windows, install it inside WSL.
+Intel), Linux (x86_64 and arm64, static) and Windows (x86_64 and arm64).
+
+On Windows, in PowerShell:
+
+```powershell
+irm https://platform.askaletta.com/cli.ps1 | iex
+```
+
+It installs `aletta.exe` to `%LOCALAPPDATA%\Programs\aletta` (or `ALETTA_INSTALL_DIR`)
+without administrator rights and adds it to your user `PATH`. The Windows builds are not
+code-signed yet.
 
 Then save a sandbox key from the Platform and play a scenario:
 
@@ -36,6 +46,9 @@ minisign -Vm SHA256SUMS -P RWS+Ox5DM7U90MnKOTT0xZXhEfJI/mxRDlo02Q5oeWSPJ3xBmffA8
 shasum -a 256 -c SHA256SUMS --ignore-missing    # macOS
 sha256sum -c SHA256SUMS --ignore-missing        # Linux
 ```
+
+On Windows, in PowerShell, `Get-FileHash aletta-<version>-<target>.zip` prints the hash to
+compare with the archive's line in `SHA256SUMS`.
 
 The release public key:
 
